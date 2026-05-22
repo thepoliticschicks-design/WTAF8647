@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form WTAF-8647 — We The Aggrieved Filing</title>
+    <meta name="description" content="We The Aggrieved Filing: A mass participation accountability project. Download Form WTAF-8647, fill it out, and mail your grievances to Acting Attorney General Todd Blanche.">
+    <meta property="og:title" content="Form WTAF-8647 — We The Aggrieved Filing">
+    <meta property="og:description" content="330 million Americans have grievances. It's time to file them.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wtaf8647.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Form WTAF-8647 — We The Aggrieved Filing">
+    <meta name="twitter:description" content="330 million Americans have grievances. It's time to file them. Download the form. Mail it in. 16,500,000 OR BUST.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── VARIABLES ── */
+        :root {
+            --navy:       #1F3864;
+            --navy-dark:  #162849;
+            --red:        #8B1A1A;
+            --red-hover:  #a52020;
+            --cream:      #F5F0E8;
+            --white:      #FFFFFF;
+            --dark:       #1a1a1a;
+            --gray:       #5a5a5a;
+            --light-gray: #e0dbd0;
+            --border:     #cdc8be;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Source Sans 3', Georgia, sans-serif;
+            color: var(--dark);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--navy);
+            border-bottom: 3px solid var(--red);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 58px;
+        }
+
+        .nav-brand {
+            font-family: 'Courier Prime', monospace;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 0 1.1rem;
+            height: 58px;
+            line-height: 58px;
+            transition: all 0.15s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -3px;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background: rgba(255,255,255,0.07);
+            border-bottom-color: white;
+        }
+
+        .nav-links a.nav-register {
+            background: var(--red);
+            color: white;
+        }
+
+        .nav-links a.nav-register:hover {
+            background: var(--red-hover);
+            border-bottom-color: transparent;
+        }
+
+        /* ── HERO ── */
+        #home {
+            background: var(--navy);
+            color: white;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg, transparent, transparent 48px,
+                rgba(255,255,255,0.022) 48px, rgba(255,255,255,0.022) 49px
+            );
+            pointer-events: none;
+        }
+
+        .hero-omb {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.78rem;
+            letter-spacing: 0.25em;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.88;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(1.1rem, 3vw, 1.6rem);
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .hero-tagline {
+            font-size: clamp(0.78rem, 2vw, 0.9rem);
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .counter-box {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.22);
+            background: rgba(255,255,255,0.06);
+            padding: 1.2rem 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .counter-number {
+            display: block;
+            font-family: 'Courier Prime', monospace;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1;
+        }
+
+        .counter-label {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.4rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ── BUTTONS ── */
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.4rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.15s;
+        }
+
+        .btn-red   { background: var(--red); color: white; }
+        .btn-red:hover { background: var(--red-hover); }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        .btn-navy { background: var(--navy); color: white; }
+        .btn-navy:hover { background: var(--navy-dark); }
+
+        /* ── SECTION BASE ── */
+        .section-wrap { padding: 5rem 2rem; }
+        .section-wrap.white  { background: white; }
+        .section-wrap.cream  { background: var(--cream); }
+        .section-wrap.navy   { background: var(--navy); color: white; }
+        .section-wrap.scarlet { background: var(--red); color: white; }
+
+        .inner      { max-width: 860px;  margin: 0 auto; }
+        .inner.wide { max-width: 1060px; margin: 0 auto; }
+
+        .section-label {
+            display: inline-block;
+            background: var(--navy);
+            color: white;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 0.4rem 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-wrap.navy .section-label {
+            background: rgba(255,255,255,0.13);
+        }
+
+        .section-wrap.scarlet .section-label {
+            background: rgba(255,255,255,0.13);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.9rem);
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-wrap.navy h2 { color: white; }
+        .section-wrap.scarlet h2 { color: white; }
+        .section-wrap.scarlet p { color: rgba(255,255,255,0.85); }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 1.1rem;
+        }
+
+        .section-wrap.navy p { color: rgba(255,255,255,0.78); }
+
+        /* ── ABOUT ── */
+        .about-quote {
+            border-left: 4px solid var(--red);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: var(--cream);
+        }
+
+        .about-quote p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin: 0;
+        }
+
+        /* ── STEPS ── */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-top: 4px solid var(--navy);
+        }
+
+        .step-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--light-gray);
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .step h3 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--navy);
+            margin-bottom: 0.6rem;
+            font-family: 'Source Sans 3', sans-serif;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* ── DOWNLOAD ── */
+        .download-card {
+            background: var(--navy);
+            border: 1px solid var(--navy-dark);
+            padding: 3rem;
+            text-align: center;
+            max-width: 580px;
+            margin: 2rem auto;
+        }
+
+        .form-badge {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-name-big {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 0.25rem;
+            color: var(--cream);
+        }
+
+        .form-subtitle {
+            font-style: italic;
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .mailing-block {
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.88rem;
+            line-height: 1.9;
+            color: rgba(255,255,255,0.65);
+            background: rgba(0,0,0,0.18);
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+            margin-bottom: 2rem;
+            border-left: 3px solid rgba(255,255,255,0.22);
+        }
+
+        .mailing-block strong {
+            color: rgba(255,255,255,0.85);
+            display: block;
+            font-size: 0.68rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── REGISTER FORM ── */
+        .form-bar {
+            background: var(--navy);
+            color: white;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            padding: 0.6rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .form-group.full { grid-column: 1 / -1; }
+
+        label {
+            font-size: 0.73rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--navy);
+        }
+
+        label .opt {
+            font-weight: 400;
+            color: var(--gray);
+            text-transform: none;
+            letter-spacing: 0;
+            font-style: italic;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1rem;
+            padding: 0.7rem 0.9rem;
+            border: 1.5px solid var(--border);
+            background: var(--cream);
+            color: var(--dark);
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
+            transition: border-color 0.15s, background 0.15s;
+            border-radius: 0;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--navy);
+            background: white;
+        }
+
+        .submit-row {
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .submit-btn {
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 0.9rem 2.8rem;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.15s;
+            border-radius: 0;
+        }
+
+        .submit-btn:hover { background: var(--navy-dark); }
+
+        .privacy-note {
+            font-size: 0.82rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        #success-msg {
+            display: none;
+            background: #edf7ed;
+            border: 1.5px solid #5a9a5a;
+            padding: 2rem;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        #success-msg strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2d5a2d;
+            margin-bottom: 0.4rem;
+        }
+
+        #success-msg p {
+            font-size: 1rem;
+            color: #3a6e3a;
+            margin: 0;
+        }
+
+        .setup-notice {
+            background: #fff8e1;
+            border: 1.5px solid #f0c040;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+            font-size: 0.88rem;
+            color: #5a4000;
+            line-height: 1.6;
+        }
+
+        .setup-notice strong { display: block; margin-bottom: 0.2rem; font-size: 0.9rem; }
+
+        code {
+            background: rgba(0,0,0,0.07);
+            padding: 0.1rem 0.4rem;
+            font-family: 'Courier Prime', monospace;
+            font-size: 0.85rem;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 0;
+            justify-content: center;
+            margin: 1.25rem 0;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 0.75rem 0;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.25rem 1rem;
+            transition: color 0.15s;
+            border-right: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-links a:last-child { border-right: none; }
+        .footer-links a:hover { color: white; }
+
+        .disclaimer {
+            font-size: 0.73rem;
+            font-style: italic;
+            color: rgba(255,255,255,0.28);
+            max-width: 680px;
+            margin: 1rem auto 0;
+            line-height: 1.7;
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: 1; }
+            .download-card { padding: 2rem 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-ctas { flex-direction: column; align-items: center; }
+            .hero-ctas .btn { width: 100%; max-width: 300px; text-align: center; }
+            .section-wrap { padding: 3.5rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+     ════════════════════════════════════════ -->
+<nav>
+    <a href="#home" class="nav-brand">Form WTAF-8647</a>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#participate">Participate</a></li>
+        <li><a href="#download">Download Form</a></li>
+        <li><a href="#register" class="nav-register">Log Your Participation</a></li>
+    </ul>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════ -->
+<section id="home">
+    <h1 class="hero-title">JOIN THE MOVEMENT</h1>
+    <div class="hero-subtitle">We The Aggrieved Filing</div>
+    <div class="hero-tagline">FILE YOUR FORM WTAF-8647 TODAY</div>
+
+    <div class="counter-box">
+        <span class="counter-number" id="counter-display">—</span>
+        <span class="counter-label">Americans have filed</span>
+    </div>
+
+    <div class="hero-ctas">
+        <a href="WTAF_Form_Letter_VF.docx" download class="btn btn-red">Download Form</a>
+        <a href="#register" class="btn btn-outline">Register Your Participation</a>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     ABOUT
+     ════════════════════════════════════════ -->
+<section id="about" class="section-wrap white">
+    <div class="inner">
+        <div class="section-label">Section I — About</div>
+        <h2>330 million Americans have grievances.<br>It's time to file them.</h2>
+
+        <p>In May 2025, the U.S. Department of Justice under Acting Attorney General Todd Blanche announced the creation of the <strong>Anti-Weaponization Fund</strong> — a $1.776 billion taxpayer-funded compensation program to pay individuals who claim they were improperly targeted by federal employees and agents.</p>
+
+        <p>Here's what they're not leading with: <strong>this fund was created as a direct concession in the settlement of Donald Trump's own $10 billion lawsuit against the Internal Revenue Service.</strong> Trump filed that lawsuit after a contractor leaked his tax return information to the media. In exchange for withdrawing his suit, the Justice Department agreed to establish a fund overseen by a five-member commission appointed entirely by Todd Blanche — Trump's own Acting Attorney General.</p>
+
+        <div class="about-quote">
+            <p>"Democrats and government watchdogs immediately called the arrangement 'corrupt' and unprecedented, warning it opens the door to meritless claims of political persecution and would use public funds to enrich people close to the president."</p>
+        </div>
+
+        <p>The fund is drawn from the federal judgment fund. <strong>You, the American taxpayer, are paying for it.</strong> It operates through December 15, 2028, and is positioned to primarily benefit Trump allies and associates who claim they were politically targeted by federal agencies — the very people who cheered on the dismantling of those agencies.</p>
+
+        <p>We believe this fund is corrupt, unjust, and an abuse of public funds. We believe most Americans agree. And we believe the most powerful thing we can do right now is make that opposition impossible to ignore.</p>
+
+        <h2 style="margin-top: 3rem;">What We're Doing — And Why Paper</h2>
+
+        <p>We are not sending emails. We are not signing online petitions that disappear into a database. <strong>We are mailing paper.</strong> Actual envelopes. Actual stamps. Actual signatures delivered to the actual desk of the Acting Attorney General of the United States.</p>
+
+        <p>Every envelope that arrives at the Department of Justice is a physical object that must be received, logged, opened, read, and processed. It cannot be bulk-deleted. It cannot be filtered to spam. It has to be handled — by human beings, one at a time.</p>
+
+        <p><strong>Our goal is 16.5 million filings</strong> — 5% of the American population. At just 5 minutes per application, processed over a standard 5-day work week, a single processor would need <strong>661 years</strong> to work through them. A team of 100 dedicated staff would take nearly 7 years. That is the point. We want them to feel every single one of us.</p>
+
+        <div class="about-quote">
+            <p>"I respectfully request that this application receive the careful, individual attention it warrants."</p>
+        </div>
+
+        <p>Download Form WTAF-8647, check every box that applies to you, and mail it directly to Acting Attorney General Todd Blanche. Then come back here and log your participation so we can track the count in real time.</p>
+
+        <p style="margin-top: 2rem;"><strong>A note on your envelope:</strong> The form is three pages — two if you print double-sided — but your envelope doesn't have to be thin. A standard Forever stamp covers up to 1 oz, so feel free to include extra pages: blank paper, your kid's coloring book pages, a used grocery list, a receipt from your last shopping trip, your most recent gas station receipt, printed news articles that inspired you to file, or a personal note in your own words telling them exactly how you feel. If you're willing to pay a little extra postage, go for it. Your total cost of participation is a little time and the price of a single stamp — and if that's not the most efficient protest you've ever made, we don't know what is. If you're especially committed, send it via registered mail and require a signature with a return receipt card. Make them sign for every single one.</p>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     PARTICIPATE
+     ════════════════════════════════════════ -->
+<section id="participate" class="section-wrap cream">
+    <div class="inner wide">
+        <div class="section-label">Section II — How to Participate</div>
+        <h2>Four steps. One stamp.<br>330 million voices.</h2>
+        <p>This is the easiest protest you'll ever do. It costs one stamp and about ten minutes.</p>
+
+        <div class="steps">
+            <div class="step">
+                <span class="step-num">01</span>
+                <h3>Download</h3>
+                <p>Download Form WTAF-8647 below. Print it on standard 8.5×11 paper. It prints on three pages — two if you print double-sided.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">02</span>
+                <h3>Fill It Out</h3>
+                <p>Check every box that applies to you. Fill in your name and address. Sign it. The form provides space for additional grievances.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">03</span>
+                <h3>Mail It</h3>
+                <p>Fold it in thirds, seal it in a standard envelope, affix a Forever stamp, and mail it to the Acting Attorney General at the DOJ. The address is on the form.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">04</span>
+                <h3>Register</h3>
+                <p>Come back and register your participation so we can track how many Americans have filed. Add your name to the record.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; background: var(--navy); padding: 1.75rem 2rem; display: flex; gap: 1.25rem; align-items: flex-start;">
+            <div style="font-size: 2rem; line-height: 1; flex-shrink: 0;">📸</div>
+            <div>
+                <div style="font-family: 'Courier Prime', monospace; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem;">Bonus Step — Make Some Noise</div>
+                <p style="color: white; font-size: 1.05rem; line-height: 1.7; margin: 0;">Take a photo or film yourself dropping your envelope in the mailbox and post it with <strong style="color: white;">#WTAF8647</strong>. Show the sealed envelope, the stamp, the mailbox — whatever you've got. The more people who see it, the more people who file. 16,500,000 strong and we want everyone to know it.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     DOWNLOAD
+     ════════════════════════════════════════ -->
+<section id="download" class="section-wrap cream">
+    <div class="inner" style="text-align: center;">
+        <div class="section-label">Section III — Download Form</div>
+        <h2>Download Form WTAF-8647</h2>
+        <p>Print, fill out, sign, and mail. The Department of Justice will receive it.</p>
+
+        <div class="download-card">
+            <span class="form-badge">Form WTAF-8647 &nbsp;·&nbsp; Rev. 2025–2026 &nbsp;·&nbsp; Cat. No. 1776WTF</span>
+            <div class="form-name-big">FORM WTAF-8647</div>
+            <div class="form-subtitle">We The Aggrieved Filing — Application for Compensation</div>
+
+            <a href="WTAF_Form_Letter_VF.docx" download class="btn btn-red" style="display: inline-block; margin-bottom: 2rem;">
+                ↓ &nbsp; Download Form (DOCX)
+            </a>
+
+            <div class="mailing-block">
+                <strong>Mail completed form to:</strong>
+                The Honorable Todd Blanche<br>
+                Acting Attorney General of the United States<br>
+                U.S. Department of Justice<br>
+                950 Pennsylvania Avenue, NW<br>
+                Washington, DC&nbsp; 20530
+            </div>
+
+            <p style="font-size: 0.82rem; color: rgba(255,255,255,0.4); font-style: italic; margin: 0;">
+                Need a printer? Your local library prints for free.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     REGISTER
+     ════════════════════════════════════════ -->
+<section id="register" class="section-wrap white">
+    <div class="inner">
+        <div class="section-label">Section IV — Register Participation</div>
+        <h2>I mailed it.<br>Add me to the record.</h2>
+        <p>Once you've mailed your form, register here so we can track how many Americans have filed — and where they're filing from. First name, last name, and state is all we need. Email is entirely optional; if this takes off we'll start a newsletter.</p>
+
+        <div class="form-bar">Participant Registration — All fields required except email</div>
+
+        <!-- Hidden iframe absorbs Google Forms redirect so page stays put -->
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                onload="formSubmitted()"></iframe>
+
+        <form
+            id="registration-form"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScnxsjai48XbPHC7sFkP_W3FIvfL3EUza91SSN1e_3Zmnr5UA/formResponse"
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="handleSubmit(event)"
+        >
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="entry.1245306675"
+                           required placeholder="First name" autocomplete="given-name">
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="entry.216455808"
+                           required placeholder="Last name" autocomplete="family-name">
+                </div>
+
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state" name="entry.677863952" required>
+                        <option value="">Select your state…</option>
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>Arizona</option>
+                        <option>Arkansas</option>
+                        <option>California</option>
+                        <option>Colorado</option>
+                        <option>Connecticut</option>
+                        <option>Delaware</option>
+                        <option>Florida</option>
+                        <option>Georgia</option>
+                        <option>Hawaii</option>
+                        <option>Idaho</option>
+                        <option>Illinois</option>
+                        <option>Indiana</option>
+                        <option>Iowa</option>
+                        <option>Kansas</option>
+                        <option>Kentucky</option>
+                        <option>Louisiana</option>
+                        <option>Maine</option>
+                        <option>Maryland</option>
+                        <option>Massachusetts</option>
+                        <option>Michigan</option>
+                        <option>Minnesota</option>
+                        <option>Mississippi</option>
+                        <option>Missouri</option>
+                        <option>Montana</option>
+                        <option>Nebraska</option>
+                        <option>Nevada</option>
+                        <option>New Hampshire</option>
+                        <option>New Jersey</option>
+                        <option>New Mexico</option>
+                        <option>New York</option>
+                        <option>North Carolina</option>
+                        <option>North Dakota</option>
+                        <option>Ohio</option>
+                        <option>Oklahoma</option>
+                        <option>Oregon</option>
+                        <option>Pennsylvania</option>
+                        <option>Rhode Island</option>
+                        <option>South Carolina</option>
+                        <option>South Dakota</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Utah</option>
+                        <option>Vermont</option>
+                        <option>Virginia</option>
+                        <option>Washington</option>
+                        <option>West Virginia</option>
+                        <option>Wisconsin</option>
+                        <option>Wyoming</option>
+                        <option>Washington, D.C.</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="opt">(optional — for future updates)</span></label>
+                    <input type="email" id="email" name="entry.2035651432"
+                           placeholder="your@email.com" autocomplete="email">
+                </div>
+
+            </div>
+
+            <div class="submit-row">
+                <button type="submit" class="submit-btn">Submit Registration</button>
+                <span class="privacy-note">Your information will never be sold or shared.</span>
+            </div>
+        </form>
+
+        <div id="success-msg">
+            <strong>You're on the record.</strong>
+            <p>Thank you for filing. 16,500,000 OR BUST.</p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<!-- ════════════════════════════════════════
+     WHO'S BEHIND IT
+     ════════════════════════════════════════ -->
+<section id="about-us" class="section-wrap cream">
+    <div class="inner">
+        <div class="section-label">Section V — Who's Behind This</div>
+        <h2>The Politics Chicks</h2>
+
+        <p>If you found your way here, it's probably because you are alarmed by what is happening in our country right now. The blatant corruption, the trampling of the Constitution, the hollowing out of our federal agencies and norms, the assault on our global alliances and relations — all of it.</p>
+
+        <p>We were alarmed, too. By "we," we mean The Politics Chicks: <strong>Christy Branham</strong> and <strong>Monica Healy</strong>. We are two middle-aged, white, suburban moms who happen to share an interest in politics and a love of humanity. We started a Substack to bring some news, activism tips, human interest stories, and maybe a little hope sprinkled in once in a while.</p>
+
+        <p><strong>Christy:</strong> I became ½ of The Politics Chicks — as both a writer and an advocate — because of our kids. And by that, I mean all of our kids. The next generation is growing up in a world where their rights are being stripped away in real time, where their futures are being shaped by leaders who put power over people, and where the very foundations of democracy are under attack. I refuse to stand by and watch as their freedoms are eroded, their voices silenced, and their opportunities stolen. We owe it to them — not just to protect what remains, but to fight for something better. If we don't step up now, they will inherit a world where justice, equality, and truth are nothing more than relics of the past. I refuse to accept that. I write and speak up because silence is complicity, and I choose to fight.</p>
+
+        <p><strong>Monica:</strong> I just retired from teaching after 30 years of trying to mold little people into good human beings and competent musicians. Teaching felt like my way of making my own little corner of the world a brighter and better place. After the election, I felt a need to keep shining that light. Enter "The Politics Chicks." We are new and inexperienced, but we are passionate. I have three young adult children and literally thousands and thousands of former students. I want to be a voice for my children and my students.</p>
+
+        <div class="about-quote">
+            <p>"Thanks for being here with us. We're glad you found us. Keep shining your light so we can find each other in the dark — and remember we're stronger together."</p>
+        </div>
+
+        <p>Find us on Threads, Facebook, Instagram, Bluesky, and Substack — all at <strong>@thepoliticschicks</strong>. New episodes of our weekly podcast drop every week, wherever you get your podcasts and on YouTube and Substack.</p>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://thepoliticschicks.substack.com" target="_blank" class="btn btn-navy" style="font-size: 0.8rem;">Read Us on Substack</a>
+            <a href="https://www.youtube.com/channel/UCOaauOU5XoGKXPGvGys17WA" target="_blank" class="btn btn-navy" style="font-size: 0.8rem;">Watch on YouTube</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════ -->
+<footer>
+    <div class="footer-brand">Form WTAF-8647</div>
+    <p>We The Aggrieved Filing &nbsp;·&nbsp; wtaf8647.com</p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#participate">Participate</a>
+        <a href="#download">Download Form</a>
+        <a href="#register">Register</a>
+    </div>
+
+    <p>Form WTAF-8647 (Rev. 2025–2026) &nbsp;·&nbsp; Cat. No. 1776WTF &nbsp;·&nbsp; 16,500,000 OR BUST.</p>
+
+    <div class="disclaimer">
+        This is a grassroots resistance project protected under the First Amendment. Form WTAF-8647 is not an official U.S. government form and is not affiliated with or endorsed by the Department of Justice or any federal agency.
+    </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════ -->
+<script>
+    // ── COUNTER ─────────────────────────────────────────────
+    // Reads live row count from the linked Google Sheet.
+    // Requires the spreadsheet to be shared: "Anyone with the link can view"
+    const SHEET_ID   = '1iMiXmKTpWUFOzAn2nhJYB6qIUV4G3_LY0uqonV3a4iw';
+    const SHEET_NAME = encodeURIComponent('WTAF8647 REGISTRATION');
+
+    let currentCount = null;
+
+    async function getCount() {
+        try {
+            const q   = encodeURIComponent('SELECT COUNT(A)');
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}&tq=${q}`;
+            const r   = await fetch(url);
+            const txt = await r.text();
+            // gviz wraps JSON in: /*O_o*/\ngoogle.visualization.Query.setResponse({...});
+            const json = JSON.parse(txt.replace(/^[^{]+/, '').replace(/[^}]+$/, ''));
+            const val  = json.table.rows[0]?.c[0]?.v;
+            return typeof val === 'number' ? val : null;
+        } catch { return null; }
+    }
+
+    function fmt(n) {
+        return n === null ? '—' : n.toLocaleString('en-US');
+    }
+
+    getCount().then(n => {
+        currentCount = n;
+        document.getElementById('counter-display').textContent = fmt(n);
+    });
+
+    // ── FORM SUBMISSION ──────────────────────────────────────
+    let waiting = false;
+
+    function handleSubmit() {
+        waiting = true;
+    }
+
+    async function formSubmitted() {
+        if (!waiting) return;
+        waiting = false;
+
+        document.getElementById('registration-form').style.display = 'none';
+        document.getElementById('success-msg').style.display = 'block';
+        document.getElementById('success-msg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Show optimistic +1 immediately, then pull the real number after a short delay
+        if (currentCount !== null) {
+            document.getElementById('counter-display').textContent = fmt(currentCount + 1);
+        }
+        setTimeout(async () => {
+            const fresh = await getCount();
+            if (fresh !== null) {
+                currentCount = fresh;
+                document.getElementById('counter-display').textContent = fmt(fresh);
+            }
+        }, 4000);
+    }
+</script>
+
+</body>
+</html>
