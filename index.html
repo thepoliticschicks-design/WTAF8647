@@ -295,6 +295,32 @@
             margin: 0;
         }
 
+        .humor-note {
+            background: var(--cream);
+            border: 1.5px solid var(--border);
+            border-left: 4px solid var(--red);
+            padding: 1.5rem 1.75rem;
+            margin: 2.25rem 0;
+        }
+
+        .humor-note h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            color: var(--navy);
+            margin-bottom: 0.65rem;
+            line-height: 1.2;
+        }
+
+        .humor-note p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 0.7rem;
+        }
+
+        .humor-note p:last-child {
+            margin-bottom: 0;
+        }
+
         /* ── STEPS ── */
         .steps {
             display: grid;
@@ -656,6 +682,13 @@
 
         <p>We believe this fund is corrupt, unjust, and an abuse of public funds. We believe most Americans agree. And we believe the most powerful thing we can do right now is make that opposition impossible to ignore.</p>
 
+        <div class="humor-note">
+            <h3>Why the humor?</h3>
+            <p>This is not a joke. It is a satirical protest document — and the satire is intentional.</p>
+            <p>Humor gives people a way to stay engaged when outrage becomes exhausting. It lowers fear, builds connection, spreads quickly, and makes authoritarian absurdity look exactly as ridiculous as it is.</p>
+            <p>The humor is the delivery system. The grievance is real.</p>
+        </div>
+
         <h2 style="margin-top: 3rem;">What We're Doing — And Why Paper</h2>
 
         <p>We are not sending emails. We are not signing online petitions that disappear into a database. <strong>We are mailing paper.</strong> Actual envelopes. Actual stamps. Actual signatures delivered to the actual desk of the Acting Attorney General of the United States.</p>
@@ -921,7 +954,7 @@
     <p>Form WTAF-8647 (Rev. 2025–2026) &nbsp;·&nbsp; Cat. No. 1776WTF &nbsp;·&nbsp; 16,500,000 OR BUST.</p>
 
     <div class="disclaimer">
-        This is a grassroots resistance project protected under the First Amendment. Form WTAF-8647 is not an official U.S. government form and is not affiliated with or endorsed by the Department of Justice or any federal agency.
+        This is a grassroots resistance project and satirical protest document protected under the First Amendment. Form WTAF-8647 is not an official U.S. government form, is not affiliated with or endorsed by the Department of Justice or any federal agency, and does not constitute a legal claim for compensation.
     </div>
 </footer>
 
@@ -937,34 +970,80 @@
     const SHEET_NAME = encodeURIComponent('WTAF8647 REGISTRATION');
 
     let currentCount = null;
+    let optimisticCount = null;
 
     async function getCount() {
         try {
             const q   = encodeURIComponent('SELECT COUNT(A)');
-            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}&tq=${q}`;
-            const r   = await fetch(url);
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}&tq=${q}&headers=1&cachebust=${Date.now()}`;
+            const r   = await fetch(url, { cache: 'no-store' });
             const txt = await r.text();
-            // gviz wraps JSON in: /*O_o*/\ngoogle.visualization.Query.setResponse({...});
-            const json = JSON.parse(txt.replace(/^[^{]+/, '').replace(/[^}]+$/, ''));
+
+            // gviz wraps JSON in: /*O_o*/ google.visualization.Query.setResponse({...});
+            const firstBrace = txt.indexOf('{');
+            const lastBrace  = txt.lastIndexOf('}');
+            if (firstBrace === -1 || lastBrace === -1) return null;
+
+            const json = JSON.parse(txt.slice(firstBrace, lastBrace + 1));
             const val  = json.table.rows[0]?.c[0]?.v;
             return typeof val === 'number' ? val : null;
-        } catch { return null; }
+        } catch {
+            return null;
+        }
     }
 
     function fmt(n) {
         return n === null ? '—' : n.toLocaleString('en-US');
     }
 
-    getCount().then(n => {
-        currentCount = n;
-        document.getElementById('counter-display').textContent = fmt(n);
-    });
+    function updateCounter(n) {
+        const display = document.getElementById('counter-display');
+        if (display) display.textContent = fmt(n);
+    }
+
+    async function refreshCount() {
+        const n = await getCount();
+        if (n !== null) {
+            currentCount = n;
+            updateCounter(n);
+        }
+    }
+
+    refreshCount();
 
     // ── FORM SUBMISSION ──────────────────────────────────────
     let waiting = false;
 
     function handleSubmit() {
         waiting = true;
+
+        const submitBtn = document.querySelector('#registration-form button[type="submit"]');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+        }
+    }
+
+    async function pollForUpdatedCount(expectedMinimum) {
+        const delays = [5000, 10000, 20000, 40000, 70000];
+
+        for (const delay of delays) {
+            await new Promise(resolve => setTimeout(resolve, delay));
+            const fresh = await getCount();
+
+            if (fresh !== null && fresh >= expectedMinimum) {
+                currentCount = fresh;
+                optimisticCount = null;
+                updateCounter(fresh);
+                return;
+            }
+        }
+
+        // If Google Sheets is slow to publish the new row, keep the optimistic count
+        // instead of snapping backward. A refresh will pull the official count later.
+        if (optimisticCount !== null) {
+            updateCounter(optimisticCount);
+        }
     }
 
     async function formSubmitted() {
@@ -975,17 +1054,15 @@
         document.getElementById('success-msg').style.display = 'block';
         document.getElementById('success-msg').scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        // Show optimistic +1 immediately, then pull the real number after a short delay
+        // Show optimistic +1 immediately. Then poll until Google Sheets catches up.
         if (currentCount !== null) {
-            document.getElementById('counter-display').textContent = fmt(currentCount + 1);
+            optimisticCount = currentCount + 1;
+            updateCounter(optimisticCount);
+            pollForUpdatedCount(optimisticCount);
+        } else {
+            // If the starting count failed to load, try a delayed refresh.
+            setTimeout(refreshCount, 8000);
         }
-        setTimeout(async () => {
-            const fresh = await getCount();
-            if (fresh !== null) {
-                currentCount = fresh;
-                document.getElementById('counter-display').textContent = fmt(fresh);
-            }
-        }, 4000);
     }
 </script>
 
